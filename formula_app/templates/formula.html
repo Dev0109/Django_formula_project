@@ -6,6 +6,7 @@
 <head>
     <title>Formula</title>
     <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -15,98 +16,144 @@
             <ul>
                 <li>
                     <p>Alpha:</p>
-                    <input type="text" value="" id="alpha" name="alpha" />
+                    <input type="text" value="" id="alpha" name="alpha" onchange="alpha_change()" />
                 </li>
                 <li>
                     <p>Betha:</p>
-                    <input type="text" value="" id="betha" name="betha" />
+                    <input type="text" value="" id="betha" name="betha" onchange="betha_change()" />
                 </li>
                 <li>
                     <p>Phi:</p>
-                    <input type="text" value="" id="phi" name="phi" />
+                    <input type="text" value="" id="phi" name="phi" onchange="phi_change()" />
                 </li>
                 <li>
                     <p>Delta(a):</p>
-                    <input type="text" value="" id="delta_a" name="delta_a" />
+                    <input type="text" value="" id="delta_a" name="delta_a" onchange="delta_a_change()" />
                 </li>
                 <li>
                     <p>Delta(p):</p>
-                    <input type="text" value="" id="delta_p" name="delta_p" />
+                    <input type="text" value="" id="delta_p" name="delta_p" onchange="delta_p_change()" />
                 </li>
             </ul>
         </div>
+
         <div>
             <ul>
                 <li>
                     <p>kag:</p>
-                    <input type="text" value="" name="kag" id="kag" disabled/>
+                    <input type="text" value="{{outputs.kag}}" name="kag" id="kag" disabled />
                 </li>
                 <li>
                     <p>kagh:</p>
-                    <input type="text" value="" name="kagh" id="kagh" disabled/>
+                    <input type="text" value="{{outputs.kagh}}" name="kagh" id="kagh" disabled />
                 </li>
                 <li>
                     <p>kagv:</p>
-                    <input type="text" value="" name="kagv" id="kagv" disabled/>
+                    <input type="text" value="{{outputs.kagv}}" name="kagv" id="kagv" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>kaph:</p>
-                    <input type="text" value="" name="kaph" id="kaph" disabled/>
+                    <input type="text" value="{{outputs.kaph}}" name="kaph" id="kaph" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>kach:</p>
-                    <input type="text" value="" name="kach" id="kach" disabled/>
+                    <input type="text" value="{{outputs.kach}}" name="kach" id="kach" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>teta(a):</p>
-                    <input type="text" value="" name="teta_a" id="teta_a" disabled/>
+                    <input type="text" value="{{outputs.teta_a}}" name="teta_a" id="teta_a" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>k0n:</p>
-                    <input type="text" value="" name="k0n" id="k0n" disabled/>
+                    <input type="text" value="{{outputs.k0n}}" name="k0n" id="k0n" disabled />
                 </li>
                 <li>
                     <p>k0t:</p>
-                    <input type="text" value="" name="k0t" id="k0t" disabled/>
+                    <input type="text" value="{{outputs.k0t}}" name="k0t" id="k0t" disabled />
                 </li>
                 <li>
                     <p>k0h:</p>
-                    <input type="text" value="" name="k0h" id="k0h" disabled/>
+                    <input type="text" value="{{outputs.k0h}}" name="k0h" id="k0h" disabled />
                 </li>
                 <li>
                     <p>k0V:</p>
-                    <input type="text" value="" name="k0V" id="k0V" disabled/>
+                    <input type="text" value="{{outputs.k0V}}" name="k0V" id="k0V" disabled />
                 </li>
                 <li></li>
                 <li></li>
                 <li>
                     <p>kpgh:</p>
-                    <input type="text" value="" name="kpgh" id="kpgh" disabled/>
+                    <input type="text" value="{{outputs.kpgh}}" name="kpgh" id="kpgh" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>kpph:</p>
-                    <input type="text" value="" name="kpph" id="kpph" disabled/>
+                    <input type="text" value="{{outputs.kpph}}" name="kpph" id="kpph" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>kpch:</p>
-                    <input type="text" value="" name="kpch" id="kpch" disabled/>
+                    <input type="text" value="{{outputs.kpch}}" name="kpch" id="kpch" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>teta(p):</p>
-                    <input type="text" value="" name="teta_p" id="teta_p" disabled/>
+                    <input type="text" value="{{outputs.teta_p}}" name="teta_p" id="teta_p" disabled />
                 </li>
-                <li></li>
             </ul>
         </div>
     </div>
-    <button>Calculate</button>
+    <!-- <button>Calculate</button> -->
+    <button onclick="submit_button()">Calculate</button>
 </body>
+<script>
+    var alpha_input, betha_input, phi_input, delta_a_input, delta_p_input;
+
+    function alpha_change() {
+        alpha_input = document.getElementById("alpha").value;
+        console.log("alpha", alpha_input);
+    }
+
+    function betha_change() {
+        betha_input = document.getElementById("betha").value;
+        console.log("betha", betha_input);
+    }
+
+    function phi_change() {
+        phi_input = document.getElementById("alpha").value;
+        console.log("phi", phi_input);
+    }
+
+    function delta_a_change() {
+        delta_a_input = document.getElementById("alpha").value;
+        console.log("delta_a", delta_a_input);
+    }
+
+    function delta_p_change() {
+        delta_p_input = document.getElementById("alpha").value;
+        console.log("delta_p", delta_p_input);
+    }
+
+    function submit_button() {
+        $.ajax({
+            type: "GET",
+            url: "/submit/",
+            data: {
+                alpha: alpha_input,
+                betha: betha_input,
+                phi: phi_input,
+                delta_a: delta_a_input,
+                delta_p: delta_p_input,
+            },
+            success: function() {
+                console.log();
+            },
+        });
+    }
+</script>
 
 </html>

@@ -111,31 +111,31 @@
     <button onclick="submit_button()">Calculate</button>
 </body>
 <script>
-    var alpha_input, betha_input, phi_input, delta_a_input, delta_p_input;
+    var alpha, betha, phi, delta_a, delta_p;
 
     function alpha_change() {
-        alpha_input = document.getElementById("alpha").value;
-        console.log("alpha", alpha_input);
+        alpha = document.getElementById("alpha").value;
+        console.log("alpha", alpha);
     }
 
     function betha_change() {
-        betha_input = document.getElementById("betha").value;
-        console.log("betha", betha_input);
+        betha = document.getElementById("betha").value;
+        console.log("betha", betha);
     }
 
     function phi_change() {
-        phi_input = document.getElementById("alpha").value;
-        console.log("phi", phi_input);
+        phi = document.getElementById("phi").value;
+        console.log("phi", phi);
     }
 
     function delta_a_change() {
-        delta_a_input = document.getElementById("alpha").value;
-        console.log("delta_a", delta_a_input);
+        delta_a = document.getElementById("delta_a").value;
+        console.log("delta_a", delta_a);
     }
 
     function delta_p_change() {
-        delta_p_input = document.getElementById("alpha").value;
-        console.log("delta_p", delta_p_input);
+        delta_p = document.getElementById("delta_p").value;
+        console.log("delta_p", delta_p);
     }
 
     function submit_button() {
@@ -143,11 +143,11 @@
             type: "GET",
             url: "/submit/",
             data: {
-                alpha: alpha_input,
-                betha: betha_input,
-                phi: phi_input,
-                delta_a: delta_a_input,
-                delta_p: delta_p_input,
+                alpha: alpha,
+                betha: betha,
+                phi: phi,
+                delta_a: delta_a,
+                delta_p: delta_p,
             },
             success: function() {
                 console.log();

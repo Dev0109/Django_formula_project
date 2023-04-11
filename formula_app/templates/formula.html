@@ -41,68 +41,68 @@
             <ul>
                 <li>
                     <p>kag:</p>
-                    <input type="text" value="{{outputs.kag}}" name="kag" id="kag" disabled />
+                    <input type="text" name="kag" id="kag" disabled />
                 </li>
                 <li>
                     <p>kagh:</p>
-                    <input type="text" value="{{outputs.kagh}}" name="kagh" id="kagh" disabled />
+                    <input type="text" name="kagh" id="kagh" disabled />
                 </li>
                 <li>
                     <p>kagv:</p>
-                    <input type="text" value="{{outputs.kagv}}" name="kagv" id="kagv" disabled />
+                    <input type="text" name="kagv" id="kagv" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>kaph:</p>
-                    <input type="text" value="{{outputs.kaph}}" name="kaph" id="kaph" disabled />
+                    <input type="text" name="kaph" id="kaph" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>kach:</p>
-                    <input type="text" value="{{outputs.kach}}" name="kach" id="kach" disabled />
+                    <input type="text" name="kach" id="kach" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>teta(a):</p>
-                    <input type="text" value="{{outputs.teta_a}}" name="teta_a" id="teta_a" disabled />
+                    <input type="text" name="teta_a" id="teta_a" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>k0n:</p>
-                    <input type="text" value="{{outputs.k0n}}" name="k0n" id="k0n" disabled />
+                    <input type="text" name="k0n" id="k0n" disabled />
                 </li>
                 <li>
                     <p>k0t:</p>
-                    <input type="text" value="{{outputs.k0t}}" name="k0t" id="k0t" disabled />
+                    <input type="text" name="k0t" id="k0t" disabled />
                 </li>
                 <li>
                     <p>k0h:</p>
-                    <input type="text" value="{{outputs.k0h}}" name="k0h" id="k0h" disabled />
+                    <input type="text" name="k0h" id="k0h" disabled />
                 </li>
                 <li>
                     <p>k0V:</p>
-                    <input type="text" value="{{outputs.k0V}}" name="k0V" id="k0V" disabled />
+                    <input type="text" name="k0V" id="k0V" disabled />
                 </li>
                 <li></li>
                 <li></li>
                 <li>
                     <p>kpgh:</p>
-                    <input type="text" value="{{outputs.kpgh}}" name="kpgh" id="kpgh" disabled />
+                    <input type="text" name="kpgh" id="kpgh" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>kpph:</p>
-                    <input type="text" value="{{outputs.kpph}}" name="kpph" id="kpph" disabled />
+                    <input type="text" name="kpph" id="kpph" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>kpch:</p>
-                    <input type="text" value="{{outputs.kpch}}" name="kpch" id="kpch" disabled />
+                    <input type="text" name="kpch" id="kpch" disabled />
                 </li>
                 <li></li>
                 <li>
                     <p>teta(p):</p>
-                    <input type="text" value="{{outputs.teta_p}}" name="teta_p" id="teta_p" disabled />
+                    <input type="text" name="teta_p" id="teta_p" disabled />
                 </li>
             </ul>
         </div>
@@ -149,8 +149,25 @@
                 delta_a: delta_a,
                 delta_p: delta_p,
             },
-            success: function() {
-                console.log();
+            success: function(response) {
+                if (response == "divide by zero") {
+                    alert("Divide by zero")
+                } else {
+                    $("#kag").val(response.kag);
+                    $("#kagh").val(response.kagh);
+                    $("#kagv").val(response.kagv);
+                    $("#kaph").val(response.kaph);
+                    $("#kach").val(response.kach);
+                    $("#teta_a").val(response.teta_a);
+                    $("#k0n").val(response.k0n);
+                    $("#k0t").val(response.k0t);
+                    $("#k0h").val(response.k0h);
+                    $("#k0V").val(response.k0V);
+                    $("#kpgh").val(response.kpgh);
+                    $("#kpph").val(response.kpph);
+                    $("#kpch").val(response.kpch);
+                    $("#teta_p").val(response.teta_p);
+                }
             },
         });
     }
